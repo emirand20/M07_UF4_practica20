@@ -14,8 +14,6 @@
 # Feina Grupal
 ~~~
 1.Crear un projecte de Django REST FRAMEWORK de nom tenda_grupX (on X es el número del grup). La BDD (la que vulgueu) ha de tindre 6 camps sense comptar id.
-~~~ 
-~~~ 
 Aquest projecte haurà de tindre les següents 5 aplicacions:
 ~~~ 
 ~~~ 
