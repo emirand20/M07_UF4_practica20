@@ -1,16 +1,15 @@
 # M07_UF4_practica20
-# M07_UF4_practica20
-## Crear un repo, a github, de nom M07_UF4_practica20.
-## Treballar amb branques!
-## Cal afegir css en tots els exercicis (s’avalua).
-## Afegir captura a on es demani.
-## Utilitzar KANBAN de github.
-## Es realitza l’entrega del document amb l’enllaç al github.	
-## Posar els noms i cognoms a la taula.
-## L’entrega de la pràctica és necessària per a que el professorat sigui conscient dels coneixements adquirits per part de l’alumnat. Cal fer, mínim, un commit els dimarts i un commit els dijous en horari de M7. (Es revisaran commits)
-## L’entrega es realitza segons el classroom.
-## Cal fer una presentació d’aquesta pràctica i defensar-la davant dels companys.
-## Defensa el 18/05. 20 minuts per grup.
+* Crear un repo, a github, de nom M07_UF4_practica20.
+* Treballar amb branques!
+* Cal afegir css en tots els exercicis (s’avalua).
+* Afegir captura a on es demani.
+* Utilitzar KANBAN de github.
+* Es realitza l’entrega del document amb l’enllaç al github.	
+* Posar els noms i cognoms a la taula.
+* L’entrega de la pràctica és necessària per a que el professorat sigui conscient dels coneixements adquirits per part de l’alumnat. Cal fer, mínim, un commit els dimarts i un commit els dijous en horari de M7. (Es revisaran commits)
+* L’entrega es realitza segons el classroom.
+* Cal fer una presentació d’aquesta pràctica i defensar-la davant dels companys.
+* Defensa el 18/05. 20 minuts per grup.
 
 # Feina Grupal
 ~~~
