@@ -11,6 +11,15 @@
     <h1>Proyecto Crud</h1>
 
     <a href="{% url 'productos:crear_producto' %}">Crear producto</a>
+    {% if productos %}
+    <ul>
+        {% for producto in productos %}
+            <li>{{ producto.nombre }} - {{ producto.descripcion }} - ${{ producto.precio }}</li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No hay productos en el catálogo.</p>
+{% endif %}
 </body>
 
 </html>

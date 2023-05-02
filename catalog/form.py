@@ -5,4 +5,4 @@ class CatalogoForm(ModelForm):
     class Meta:
 
         model = Producto  
-        exclude = ['fecha_creacion']
+        fields = '__all__'
