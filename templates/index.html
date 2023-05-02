@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index Template</title>
+</head>
+
+<body class="container">  
+    <h1>Proyecto Crud</h1>
+
+    <a href="{% url 'productos:crear_producto' %}">Crear producto</a>
+    {% if productos %}
+    <ul>
+        {% for producto in productos %}
+            <li>{{ producto.nombre }} - {{ producto.descripcion }} - ${{ producto.precio }}</li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No hay productos en el catálogo.</p>
+{% endif %}
+</body>
+
+</html>
