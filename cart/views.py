@@ -1,4 +1,4 @@
 from django.shortcuts import render
 
-def index(request):
-    return render(request, 'Cart.html')
+def tienda(request):
+    return render(request, 'tienda.html')
