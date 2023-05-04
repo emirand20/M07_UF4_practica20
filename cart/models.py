@@ -1,10 +1,12 @@
 from django.db import models
+from catalog.models import Producto
 # Create your models here.
 
-class Producto(models.Model):
-    nombre = models.CharField(max_length=100)
-    descripcion = models.TextField()
-    precio = models.FloatField()
+class Carrito(models.Model):
+    productos = models.ManyToManyField(Producto)
 
-    def __str__(self):
-        return f'{self.nombre} -> {self.precio}'
+    def total(self):
+        return sum(producto.precio for producto in self.productos.all())
+    
+    '''def __str__(self):
+        return f'{self.nombre} -> {self.precio}'''
