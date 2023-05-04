@@ -83,7 +83,7 @@ DATABASES = {
         'NAME': 'django_crud',
         'USER': 'root',
         'PASSWORD': '',
-        'PORT': '3306'
+        'PORT': '3307'
     }
 }
 
