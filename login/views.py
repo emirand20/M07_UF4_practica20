@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .serializers import UserSerializer,ProductoSerializer
 from rest_framework import viewsets,generics
 from rest_framework.permissions import IsAuthenticated
@@ -20,17 +20,23 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 
 
+
+
 class ProductoList(generics.ListCreateAPIView):
     queryset = Producto.objects.all()
     serializer_class = ProductoSerializer
     permission_classes = (IsAuthenticated,)
     authentication_class = (TokenAuthentication,)
 
-"""
-class UserViewSet(viewsets.ModelViewSet):
-    permission_classes = (IsAuthenticated,)
-    serializer_class = UserSerializer
-    queryset = get_user_model().objects.all()"""
+"""class UserAPI(APIView):
+    def post(self, request):
+        serializer = UserSerializer(data = request.data)
+        if serializer.is_valid():
+            user = serializer.save()
+            return Response(serializer.data, status = status.HTTP_201_CREATED)
+        else:
+            return Response(serializer.errors, status = status.HTTP_400_BAD_REQUEST)"""
+
 
 class Login(FormView):
     template_name = 'login.html'

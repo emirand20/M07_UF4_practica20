@@ -3,7 +3,6 @@ from django.contrib.auth.models import User
 from .models import Producto
 
 class UserSerializer(serializers.Serializer):
-    class Meta:
         id = serializers.ReadOnlyField()
         first_name = serializers.CharField()
         last_name = serializers.CharField()
@@ -12,6 +11,7 @@ class UserSerializer(serializers.Serializer):
         password = serializers.CharField()
 
         def create(self, validate_data):
+            
             instance = User()
             instance.first_name = validate_data.get('first_name')
             instance.last_name = validate_data.get('last_name')

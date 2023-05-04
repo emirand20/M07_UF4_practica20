@@ -2,12 +2,35 @@ from rest_framework.response import Response
 from .serializers import UserSerializer
 from rest_framework.views import APIView
 from rest_framework import status
+from django.views.generic.edit import FormView
+from .forms import UserCreationForm
+from .serializers import UserSerializer
+from django.contrib.auth.models import User
+from django.shortcuts import render, redirect
 
-class UserAPI(APIView):
-    def post(self, request):
-        serializer = UserSerializer(data = request.data)
+class UserAPI(FormView):
+    template_name = 'registration.html'
+    form_class = UserCreationForm
+    success_url = '/login'
+
+    def form_valid(self, form):
+        serializer = UserSerializer(data=form.cleaned_data)
         if serializer.is_valid():
             user = serializer.save()
-            return Response(serializer.data, status = status.HTTP_201_CREATED)
+            return redirect(self.get_success_url())
         else:
-            return Response(serializer.errors, status = status.HTTP_400_BAD_REQUEST)
+            return self.form_invalid(form)
+
+
+
+
+"""
+{
+"first_name":"andres",
+"last_name":"andres",
+"username":"andres",
+"email":"asdasd@gmail.com",
+"password":"andres12345"
+}
+
+"""
