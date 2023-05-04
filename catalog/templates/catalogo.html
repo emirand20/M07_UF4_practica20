@@ -1,0 +1,22 @@
+<h1>Proyecto Crud</h1>
+
+<form method="GET">
+  <label for="search">Buscar productos:</label>
+  <input type="text" id="search" name="search" value="{{ request.GET.search }}">
+  <button type="submit">Buscar</button>
+</form>
+
+<a href="{% url 'productos:crear_producto' %}">Crear producto</a>
+
+{% if productos %}
+<ul>
+  {% for producto in productos %}
+  <li>{{ producto.nombre }} - {{ producto.descripcion }} - ${{ producto.precio }}
+    <a href="{% url 'productos:editar_producto' producto.id %}">Editar</a>
+    <a href="{% url 'productos:eliminar_producto' producto.id %}">Eliminar</a>
+  </li>
+  {% endfor %}
+</ul>
+{% else %}
+<p>No hay productos en el catálogo.</p>
+{% endif %}

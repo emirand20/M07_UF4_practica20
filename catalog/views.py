@@ -10,7 +10,7 @@ def catalogo(request):
     search_term = request.GET.get('search')
     if search_term:
         productos = productos.filter(nombre__icontains=search_term)
-    return render(request, 'index.html', {'productos': productos})
+    return render(request, 'catalogo.html', {'productos': productos})
 
 # Funcion para ver el producto creado por id
 def ver_producto(request, producto_id):
