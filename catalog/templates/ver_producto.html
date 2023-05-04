@@ -5,8 +5,12 @@
     <title>{{ producto.nombre }}</title>
 </head>
 <body>
+    {% block content %}
     <h1>{{ producto.nombre }}</h1>
-    <p><strong>Descripción:</strong> {{ producto.descripcion }}</p>
-    <p><strong>Precio:</strong> ${{ producto.precio }}</p>
+    <p>{{ producto.descripcion }}</p>   
+    <p>{{ producto.precio }}</p>
+    <a href="{% url 'productos:editar_producto' producto.id %}">Editar</a>
+    <a href="{% url 'productos:eliminar_producto' producto.id %}">Eliminar</a>
+  {% endblock %}
 </body>
 </html>
