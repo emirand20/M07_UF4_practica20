@@ -18,7 +18,7 @@ from django.urls import path, include
 from catalog import views
 
 urlpatterns = [
-
+    path('', views.index, name='index'),
     path('catalogo/', include('catalog.urls')),
     path('cart/', include('cart.urls')),
     path('admin/', admin.site.urls),
