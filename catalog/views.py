@@ -4,6 +4,10 @@ from django.shortcuts import redirect, render, get_object_or_404
 from .models import Producto
 from .form import CatalogoForm
 
+
+def index(request):
+    return render(request, 'index.html')
+
 # Funcion de catalogo
 def catalogo(request):
     productos = Producto.objects.all()
