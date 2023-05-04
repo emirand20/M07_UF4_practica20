@@ -7,6 +7,9 @@ from .form import CatalogoForm
 # Funcion de catalogo
 def catalogo(request):
     productos = Producto.objects.all()
+    search_term = request.GET.get('search')
+    if search_term:
+        productos = productos.filter(nombre__icontains=search_term)
     return render(request, 'index.html', {'productos': productos})
 
 # Funcion para ver el producto creado por id
@@ -34,6 +37,18 @@ def eliminar_producto(request, producto_id):
         producto.delete()
         return redirect('productos:catalogo')
     return render(request, 'eliminar_producto.html', {'producto': producto})
+
+# Función para editar un producto
+def editar_producto(request, producto_id):
+    producto = get_object_or_404(Producto, pk=producto_id)
+    if request.method == 'POST':
+        form = CatalogoForm(request.POST, instance=producto)
+        if form.is_valid():
+            form.save()
+            return redirect('productos:ver_producto', producto_id=producto.id)
+    else:
+        form = CatalogoForm(instance=producto)
+    return render(request, 'editar_producto.html', {'form': form})
 
 
 
