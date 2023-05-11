@@ -22,15 +22,3 @@ class UserAPI(FormView):
             return self.form_invalid(form)
 
 
-
-
-"""
-{
-"first_name":"andres",
-"last_name":"andres",
-"username":"andres",
-"email":"asdasd@gmail.com",
-"password":"andres12345"
-}
-
-"""

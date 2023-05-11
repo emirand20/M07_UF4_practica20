@@ -31,7 +31,7 @@ urlpatterns = [
     path('api_generate_token/',views.obtain_auth_token),
     path('login/', Login.as_view(), name = 'login'),
     path('logout/', Logout.as_view(), name = 'logout'),
-    path('payment/', PagoView.as_view(), name = 'payment')
+    path('payment/', PagoView.as_view(), name = 'payment'),
 ]
 
 

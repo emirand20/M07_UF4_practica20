@@ -18,6 +18,27 @@ from rest_framework.authentication import TokenAuthentication
 from rest_framework import status
 from rest_framework.views import APIView
 from rest_framework.response import Response
+from .forms import PaymentForm
+from django.contrib.auth import login
+from django.contrib.auth.decorators import login_required
 
 class PagoView(FormView):
-    pass
+    template_name = 'payment.html'
+    form_class = PaymentForm
+    success_url = '/login'
+
+   
+
+    def form_valid(self, form):
+        serializer = PagoSerializer(data=form.cleaned_data)
+
+        @method_decorator(login_required)
+        def dispatch(self, request, *args, **kwargs):
+            return super().dispatch(request, *args, **kwargs)
+
+        if serializer.is_valid():
+            user = serializer.save()
+            return redirect(self.get_success_url())
+        else:
+            return self.form_invalid(form)
+            
